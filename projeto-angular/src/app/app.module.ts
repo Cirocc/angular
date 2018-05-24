@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { FormularioComponent } from './formulario/formulario.component';
 import { ConsultarCepComponent } from './consultar-cep/consultar-cep.component';
 import { FormComponent } from './formulario/form/form.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { FormComponent } from './formulario/form/form.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
