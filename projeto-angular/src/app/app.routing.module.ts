@@ -5,7 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 const routes: Routes = [
-  { path: 'formulario', loadChildren: 'app/formulario/formulario.module#FormularioModule' },
+  { path: 'formulario', loadChildren: './formulario/formulario.module#FormularioModule' },
   { path: 'home', component: HomeComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', component: PaginaNaoEncontradaComponent }
