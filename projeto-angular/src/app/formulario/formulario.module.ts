@@ -6,6 +6,7 @@ import { FormularioComponent } from './formulario.component';
 import { FormResultComponent } from './form-result/form-result.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { TratamentoDeErroComponent } from './tratamento-de-erro/tratamento-de-erro.component';
 
 @NgModule({
   imports: [
@@ -18,7 +19,8 @@ import { HttpModule } from '@angular/http';
   exports: [],
   declarations: [
     FormularioComponent,
-    FormResultComponent
+    FormResultComponent,
+    TratamentoDeErroComponent
   ],
   providers: [ConsultarCepService]
 })
