@@ -1,9 +1,24 @@
+import { Http } from '@angular/http';
 import { Injectable } from '@angular/core';
+import 'rxjs/Rx';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class ConsultarCepService {
+  constructor(private http: Http) { }
 
-  constructor() { }
+  consultaDeCep(cep, resetaFormCallback, formulario) {
+    cep = cep.replace(/\D/g, '');
+
+    if (cep != '') {
+      var validacep = /^[0-9]{8}$/;
+
+      if (validacep.test(cep)) {
+        resetaFormCallback(formulario);
+
+        return this.http
+          .get(`//viacep.com.br/ws/${cep}/json`)
+          .map(dados => dados.json());
+      }
+    }
+  }
 }
