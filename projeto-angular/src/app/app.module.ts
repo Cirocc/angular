@@ -8,6 +8,7 @@ import { ConsultarCepComponent } from './consultar-cep/consultar-cep.component';
 import { FormComponent } from './formulario/form/form.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HomeComponent } from './home/home.component';
+import { PaginaNaoEncontradaComponent } from './pagina-nao-encontrada/pagina-nao-encontrada.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { HomeComponent } from './home/home.component';
     FormularioComponent,
     ConsultarCepComponent,
     FormComponent,
-    HomeComponent
+    HomeComponent,
+    PaginaNaoEncontradaComponent
   ],
   imports: [
     BrowserModule,
