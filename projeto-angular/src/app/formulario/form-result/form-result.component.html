@@ -1,6 +1,4 @@
-<p>
-  Resultado do formulario:
-</p>
-<div style="margin-top: 20px" *ngIf="formResult">
-      <!-- Resultado do Formulario aqui se formResul não for nula -->
+<div style="margin-top: 250px;" *ngIf="formResult">
+    <p>Retorno do endereço em Json</p>
+    <pre>Valores: <br>{{ formResult.value | json }}</pre>
 </div>

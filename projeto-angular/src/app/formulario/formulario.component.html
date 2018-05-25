@@ -2,70 +2,69 @@
   <app-form-result [formResult]="formulario"></app-form-result>
 </div>
 <div class="container">
-	<div class="row">
-		 <form class="form-horizontal">
-            <fieldset>
+  <div class="row">
+    <form class="form-horizontal" [formGroup]="formulario">
+      <fieldset>
 
-                <h2>Endereço</h2>
+        <h2>Endereço</h2>
 
-                <div class="control-group">
-                    <label class="control-label">Nome Completo</label>
-                    <div class="controls">
-                        <input id="full-name" name="full-name" type="text" placeholder="nome"
-                        class="input-xlarge">
-                        <p class="help-block"></p>
-                    </div>
-                </div>
-                <div class="control-group">
-                  <label class="control-label">Cep / Código Postal</label>
-                  <div class="controls">
-                      <input id="postal-code" name="postal-code" type="text" placeholder="cep ou codigo postal"
-                      class="input-xlarge">
-                      <p class="help-block"></p>
-                  </div>
-              </div>
-                <div class="control-group">
-                    <label class="control-label">Endereço</label>
-                    <div class="controls">
-                        <input id="address-line1" name="address-line1" type="text" placeholder="endereço"
-                        class="input-xlarge">
-                        <p class="help-block">Rua, nome, companhia, etc</p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Complemento</label>
-                    <div class="controls">
-                        <input id="address-line2" name="address-line2" type="text" placeholder="complemento"
-                        class="input-xlarge">
-                        <p class="help-block">Apartamento, casa, etc.</p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Cidade</label>
-                    <div class="controls">
-                        <input id="city" name="city" type="text" placeholder="cidade" class="input-xlarge">
-                        <p class="help-block"></p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">Estado</label>
-                    <div class="controls">
-                        <input id="region" name="region" type="text" placeholder="estado / região"
-                        class="input-xlarge">
-                        <p class="help-block"></p>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">País</label>
-                    <div class="controls">
-                        <select id="country" name="country" class="input-xlarge">
-                            <option value="" selected="selected">(selecione seu país)</option>
-                            <option value="BR">Brasil</option>
-                            <option value="US">Estados Unidos</option>
-                        </select>
-                    </div>
-                </div>
-            </fieldset>
-        </form>
-	</div>
+        <div class="control-group">
+          <label class="control-label">Nome Completo</label>
+          <div class="controls">
+            <input id="full-name" name="full-name" type="text" placeholder="nome" class="input-xlarge">
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Cep / Código Postal</label>
+          <div class="controls">
+            <input id="postal-code" name="postal-code" type="text" placeholder="cep ou codigo postal" class="input-xlarge">
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Endereço</label>
+          <div class="controls">
+            <input id="address-line1" name="address-line1" type="text" placeholder="endereço" class="input-xlarge">
+            <p class="help-block">Rua, nome, companhia, etc</p>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Complemento</label>
+          <div class="controls">
+            <input id="address-line2" name="address-line2" type="text" placeholder="complemento" class="input-xlarge">
+            <p class="help-block">Apartamento, casa, etc.</p>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Cidade</label>
+          <div class="controls">
+            <input id="city" name="city" type="text" placeholder="cidade" class="input-xlarge">
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">Estado</label>
+          <div class="controls">
+            <input id="region" name="region" type="text" placeholder="estado / região" class="input-xlarge">
+            <p class="help-block"></p>
+          </div>
+        </div>
+        <div class="control-group">
+          <label class="control-label">País</label>
+          <div class="controls">
+            <select id="country" name="country" class="input-xlarge">
+              <option value="" selected="selected">(selecione seu país)</option>
+              <option value="BR">Brasil</option>
+              <option value="US">Estados Unidos</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+    </form>
+  </div>
+</div>
+<div class="col-md-4 col-md-offset-4">
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <button class="btn" (click)="resetar()">Cancelar</button>
 </div>
