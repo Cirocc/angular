@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ConsultarCepService } from './consultar-cep/consultar-cep.service';
 import { FormularioRoutingModule } from './formulario.routing.module';
 import { FormularioComponent } from './formulario.component';
+import { FormResultComponent } from './form-result/form-result.component';
 
 @NgModule({
   imports: [
@@ -10,7 +11,7 @@ import { FormularioComponent } from './formulario.component';
     FormularioRoutingModule
   ],
   exports: [],
-  declarations: [FormularioComponent],
+  declarations: [FormularioComponent, FormResultComponent],
   providers: [ConsultarCepService]
 })
 export class FormularioModule { }
