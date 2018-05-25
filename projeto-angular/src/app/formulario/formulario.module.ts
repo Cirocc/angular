@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ConsultarCepComponent } from './consultar-cep/consultar-cep.component';
-import { FormComponent } from './form/form.component';
+import { ConsultarCepService } from './consultar-cep/consultar-cep.service';
 
 @NgModule({
   imports: [
-    CommonModule,
-    FormComponent,
-    ConsultarCepComponent
+    CommonModule
   ],
-  declarations: [ConsultarCepComponent]
+  declarations: [ ConsultarCepService ]
 })
 export class FormularioModule { }
