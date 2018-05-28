@@ -6,7 +6,7 @@ import { FormularioComponent } from './formulario.component';
 import { FormResultComponent } from './form-result/form-result.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { TratamentoDeErroComponent } from './tratamento-de-erro/tratamento-de-erro.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports: [
@@ -14,13 +14,13 @@ import { TratamentoDeErroComponent } from './tratamento-de-erro/tratamento-de-er
     FormularioRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SharedModule
   ],
   exports: [],
   declarations: [
     FormularioComponent,
-    FormResultComponent,
-    TratamentoDeErroComponent
+    FormResultComponent
   ],
   providers: [ConsultarCepService]
 })
