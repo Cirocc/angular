@@ -4,11 +4,17 @@
 <div class="container">
   <div class="row">
     <form class="form-horizontal" [formGroup]="formulario" (ngSubmit)="onSubmit()">
+      <div class="col-md-4 col-md-offset-4">
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button class="btn" (click)="resetar()">Cancelar</button>
+      </div>
       <fieldset>
         <div class="form-group">
           <h2>Endereço</h2>
           <div class="control-group">
             <label class="control-label">Nome Completo</label>
+            <app-tratamento-de-erro [mostrarErro]="verificaValidTouched('nome')" msgErro="Nome é obrigatório.">
+            </app-tratamento-de-erro>
             <div class="controls">
               <input id="full-name" formControlName="nome" type="text" placeholder="nome" class="form-control">
               <p class="help-block"></p>
@@ -18,15 +24,19 @@
 
         <div formGroupName="enderecoCompleto">
           <div class="form-group">
-            <div class="control-group">
+            <div class="control-group" [ngClass]="mensagemErro('enderecoCompleto.cep')">
               <label class="control-label">Cep / Código Postal</label>
+              <app-tratamento-de-erro [mostrarErro]="verificaValidTouched('enderecoCompleto.cep')" msgErro="Cep é obrigatório.">
+              </app-tratamento-de-erro>
               <div class="controls">
                 <input type="text" class="form-control" id="cep" placeholder="cep ou codigo postal" formControlName="cep" (blur)="consultaDeCep()">
                 <p class="help-block"></p>
               </div>
             </div>
-            <div class="control-group">
+            <div class="control-group" [ngClass]="mensagemErro('enderecoCompleto.endereco')">
               <label class="control-label">Endereço</label>
+              <app-tratamento-de-erro [mostrarErro]="verificaValidTouched('enderecoCompleto.endereco')" msgErro="Endereço é obrigatório.">
+              </app-tratamento-de-erro>
               <div class="controls">
                 <input id="address-line1" formControlName="endereco" type="text" placeholder="endereço" class="form-control">
                 <p class="help-block">Rua, nome, companhia, etc</p>
@@ -39,22 +49,28 @@
                 <p class="help-block">Apartamento, casa, etc.</p>
               </div>
             </div>
-            <div class="control-group">
+            <div class="control-group" [ngClass]="mensagemErro('enderecoCompleto.cidade')">
               <label class="control-label">Cidade</label>
+              <app-tratamento-de-erro [mostrarErro]="verificaValidTouched('enderecoCompleto.cidade')" msgErro="Cidade é obrigatório.">
+              </app-tratamento-de-erro>
               <div class="controls">
                 <input id="city" formControlName="cidade" placeholder="cidade" class="form-control">
                 <p class="help-block"></p>
               </div>
             </div>
-            <div class="control-group">
+            <div class="control-group" [ngClass]="mensagemErro('enderecoCompleto.estado')">
               <label class="control-label">Estado</label>
+              <app-tratamento-de-erro [mostrarErro]="verificaValidTouched('enderecoCompleto.estado')" msgErro="Estado é obrigatório.">
+              </app-tratamento-de-erro>
               <div class="controls">
                 <input id="region" formControlName="estado" placeholder="estado / região" class="form-control">
                 <p class="help-block"></p>
               </div>
             </div>
-            <div class="control-group">
+            <div class="control-group" [ngClass]="mensagemErro('enderecoCompleto.pais')">
               <label class="control-label">País</label>
+              <app-tratamento-de-erro [mostrarErro]="verificaValidTouched('enderecoCompleto.pais')" msgErro="Pais é obrigatório.">
+              </app-tratamento-de-erro>
               <div class="controls">
                 <select id="country" formControlName="pais" class="form-control">
                   <option value="" selected="selected">(selecione seu país)</option>
@@ -65,10 +81,6 @@
           </div>
         </div>
       </fieldset>
-      <div class="col-md-4 col-md-offset-4">
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <button class="btn" (click)="resetar()">Cancelar</button>
-      </div>
     </form>
   </div>
 </div>

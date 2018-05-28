@@ -5,7 +5,8 @@ import { FormularioRoutingModule } from './formulario.routing.module';
 import { FormularioComponent } from './formulario.component';
 import { FormResultComponent } from './form-result/form-result.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { TratamentoDeErroComponent } from './tratamento-de-erro/tratamento-de-erro.component';
 
 @NgModule({
   imports: [
@@ -13,12 +14,13 @@ import { HttpModule } from '@angular/http';
     FormularioRoutingModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpModule
+    HttpClientModule
   ],
   exports: [],
   declarations: [
     FormularioComponent,
-    FormResultComponent
+    FormResultComponent,
+    TratamentoDeErroComponent
   ],
   providers: [ConsultarCepService]
 })
