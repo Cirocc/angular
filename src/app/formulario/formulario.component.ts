@@ -63,20 +63,6 @@ export class FormularioComponent implements OnInit {
     this.formulario.reset();
   }
 
-  // verificaValidTouched(campo: string) {
-  //   return (
-  //     !this.formulario.get(campo).valid &&
-  //     (this.formulario.get(campo).touched || this.formulario.get(campo).dirty)
-  //   );
-  // }
-
-  // mensagemErro(campo: string) {
-  //   return {
-  //     'has-error': this.verificaValidTouched(campo),
-  //     'has-feedback': this.verificaValidTouched(campo)
-  //   };
-  // }
-
   consultaCepIncorreto(cep, resetaFormCallback, formulario) {
     cep = cep.replace(/\D/g, '');
 
@@ -93,8 +79,10 @@ export class FormularioComponent implements OnInit {
 
   consultaDeCep() {
     let cep = this.formulario.get('enderecoCompleto.cep').value;
-    this.consultaCepIncorreto(cep, this.resetaDados, this.formulario)
-      .subscribe(dados => this.preencheDadosForm(dados));
+    if (cep) {
+      this.consultaCepIncorreto(cep, this.resetaDados, this.formulario)
+        .subscribe(dados => this.preencheDadosForm(dados));
+    }
   }
 
   preencheDadosForm(dados) {
