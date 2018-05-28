@@ -22,8 +22,7 @@ export class FormularioComponent implements OnInit {
         endereco: [null, Validators.required],
         complemento: [null],
         cidade: [null, Validators.required],
-        estado: [null, Validators.required],
-        pais: [null, Validators.required]
+        estado: [null, Validators.required]
       })
     })
   }
@@ -64,19 +63,19 @@ export class FormularioComponent implements OnInit {
     this.formulario.reset();
   }
 
-  verificaValidTouched(campo: string) {
-    return (
-      !this.formulario.get(campo).valid &&
-      (this.formulario.get(campo).touched || this.formulario.get(campo).dirty)
-    );
-  }
+  // verificaValidTouched(campo: string) {
+  //   return (
+  //     !this.formulario.get(campo).valid &&
+  //     (this.formulario.get(campo).touched || this.formulario.get(campo).dirty)
+  //   );
+  // }
 
-  mensagemErro(campo: string) {
-    return {
-      'has-error': this.verificaValidTouched(campo),
-      'has-feedback': this.verificaValidTouched(campo)
-    };
-  }
+  // mensagemErro(campo: string) {
+  //   return {
+  //     'has-error': this.verificaValidTouched(campo),
+  //     'has-feedback': this.verificaValidTouched(campo)
+  //   };
+  // }
 
   consultaCepIncorreto(cep, resetaFormCallback, formulario) {
     cep = cep.replace(/\D/g, '');
@@ -104,8 +103,7 @@ export class FormularioComponent implements OnInit {
         endereco: dados.logradouro + ", " + dados.bairro,
         complemento: dados.complemento,
         cidade: dados.localidade,
-        estado: dados.uf,
-        pais: dados.pais
+        estado: dados.uf
       }
     });
   }
@@ -116,8 +114,7 @@ export class FormularioComponent implements OnInit {
         endereco: null,
         complemento: null,
         cidade: null,
-        estado: null,
-        pais: null
+        estado: null
       }
     });
   }
