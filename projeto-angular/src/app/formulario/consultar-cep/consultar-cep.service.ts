@@ -4,13 +4,21 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class ConsultarCepService {
-
   constructor(private http: Http) { }
 
-  retornaCep(cep) {
-    let cepCorreto = cep;
-    return this.http
-    .get(`//viacep.com.br/ws/${cepCorreto}/json`)
-    .map(dados => dados.json());
+  consultaDeCep(cep, resetaFormCallback, formulario) {
+    cep = cep.replace(/\D/g, '');
+
+    if (cep != '') {
+      var validacep = /^[0-9]{8}$/;
+
+      if (validacep.test(cep)) {
+        resetaFormCallback(formulario);
+
+        return this.http
+          .get(`//viacep.com.br/ws/${cep}/json`)
+          .map(dados => dados.json());
+      }
+    }
   }
 }
