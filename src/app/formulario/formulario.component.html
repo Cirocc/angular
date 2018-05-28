@@ -13,12 +13,11 @@
           <h2>Endereço</h2>
           <div class="control-group">
             <label class="control-label">Nome Completo</label>
-            <app-tratamento-de-erro [control]="formulario.get('nome')">
-              Nome é obrigatório.
-            </app-tratamento-de-erro>
             <div class="controls">
               <input id="full-name" formControlName="nome" type="text" placeholder="nome" class="form-control">
-              <p class="help-block"></p>
+              <app-tratamento-de-erro [control]="formulario.get('nome')">
+                Nome é obrigatório.
+              </app-tratamento-de-erro>
             </div>
           </div>
         </div>
@@ -27,49 +26,44 @@
           <div class="form-group">
             <div class="control-group">
               <label class="control-label">Cep / Código Postal</label>
-              <app-tratamento-de-erro [control]="formulario.get('enderecoCompleto.cep')">
-                Cep é obrigatório.
-              </app-tratamento-de-erro>
               <div class="controls">
                 <input type="text" class="form-control" id="cep" placeholder="cep ou codigo postal" formControlName="cep" (blur)="consultaDeCep()">
-                <p class="help-block"></p>
+                <app-tratamento-de-erro [control]="formulario.get('enderecoCompleto.cep')">
+                  Cep é obrigatório.
+                </app-tratamento-de-erro>
               </div>
             </div>
             <div class="control-group">
               <label class="control-label">Endereço</label>
-              <app-tratamento-de-erro [control]="formulario.get('enderecoCompleto.endereco')">
-                Endereço é obrigatório.
-              </app-tratamento-de-erro>
               <div class="controls">
-                <input id="address-line1" formControlName="endereco" type="text" placeholder="endereço" class="form-control">
-                <p class="help-block">Rua, nome, companhia, etc</p>
+                <input id="address-line1" formControlName="endereco" type="text" placeholder="Ruas, avenida e etc.." class="form-control">
+                <app-tratamento-de-erro [control]="formulario.get('enderecoCompleto.endereco')">
+                  Endereço é obrigatório.
+                </app-tratamento-de-erro>
               </div>
             </div>
             <div class="control-group">
               <label class="control-label">Complemento</label>
               <div class="controls">
-                <input id="address-line2" formControlName="complemento" type="text" placeholder="complemento" class="form-control">
-                <p class="help-block">Apartamento, casa, etc.</p>
+                <input id="address-line2" formControlName="complemento" type="text" placeholder="Apartamento, casa, etc." class="form-control">
               </div>
             </div>
             <div class="control-group">
               <label class="control-label">Cidade</label>
-              <app-tratamento-de-erro [control]="formulario.get('enderecoCompleto.cidade')">
-                Cidade é obrigatório.
-              </app-tratamento-de-erro>
               <div class="controls">
                 <input id="city" formControlName="cidade" placeholder="cidade" class="form-control">
-                <p class="help-block"></p>
+                <app-tratamento-de-erro [control]="formulario.get('enderecoCompleto.cidade')">
+                  Cidade é obrigatório.
+                </app-tratamento-de-erro>
               </div>
             </div>
             <div class="control-group">
               <label class="control-label">Estado</label>
-              <app-tratamento-de-erro [control]="formulario.get('enderecoCompleto.estado')">
-                Estado é obrigatório.
-              </app-tratamento-de-erro>
               <div class="controls">
                 <input id="region" formControlName="estado" placeholder="estado / região" class="form-control">
-                <p class="help-block"></p>
+                <app-tratamento-de-erro [control]="formulario.get('enderecoCompleto.estado')">
+                  Estado é obrigatório.
+                </app-tratamento-de-erro>
               </div>
             </div>
           </div>
