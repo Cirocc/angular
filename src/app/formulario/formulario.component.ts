@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class FormularioComponent implements OnInit {
 
+  cepInvalido: boolean = false;
   formulario: FormGroup;
 
   constructor(private cepService: ConsultarCepService, private http: HttpClient, private formBuilder: FormBuilder) { }
@@ -63,25 +64,20 @@ export class FormularioComponent implements OnInit {
     this.formulario.reset();
   }
 
-  consultaCepIncorreto(cep, resetaFormCallback, formulario) {
-    cep = cep.replace(/\D/g, '');
-
-    if (cep != '') {
-      var validacep = /^[0-9]{8}$/;
-
-      if (validacep.test(cep)) {
-        resetaFormCallback(formulario);
-
-        return this.cepService.retornaCep(cep);
-      }
-    }
+  buscaCep(cep, resetaFormCallback, formulario) {
+    resetaFormCallback(formulario);
+    return this.cepService.retornaCep(cep);
   }
 
   consultaDeCep() {
+    var validacep = /^[0-9]{8}$/;
     let cep = this.formulario.get('enderecoCompleto.cep').value;
-    if (cep) {
-      this.consultaCepIncorreto(cep, this.resetaDados, this.formulario)
+    if (cep && cep.length === 8 && validacep.test(cep)) {
+      this.cepInvalido = false;
+      this.buscaCep(cep, this.resetaDados, this.formulario)
         .subscribe(dados => this.preencheDadosForm(dados));
+    } else {
+      this.cepInvalido = true;
     }
   }
 
